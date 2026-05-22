@@ -14,10 +14,11 @@ export interface TaskResult {
 export interface HitPredict {
   id?: number
   productId?: number
-  targetAudience?: string
+  audienceId?: number
+  predictCycle?: string
   aiModel?: string
-  predictionResult?: string
   reportContent?: string
+  status?: number
   createTime?: string
   updateTime?: string
 }
@@ -26,11 +27,12 @@ export interface HitPredict {
 export interface Competitor {
   id?: number
   baseProductId?: number
-  competitorName?: string
-  platform?: string
+  compName?: string
+  compDetail?: string
+  salesPlatform?: string
   salesAmount?: number
-  kolKoc?: string
-  reportContent?: string
+  kolKocNames?: string
+  aiReportContent?: string
   createTime?: string
   updateTime?: string
 }

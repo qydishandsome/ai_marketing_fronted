@@ -81,8 +81,8 @@
         <el-table-column label="公司本品信息" min-width="200">
           <template #default="{ row }">
             <div class="product-info">
-              <div class="product-name">{{ row.baseProduct?.name || '-' }}</div>
-              <div class="product-detail">{{ row.baseProduct?.brand || '' }} | {{ row.baseProduct?.specification || '' }}</div>
+              <div class="product-name">{{ getProductName(row.baseProductId) }}</div>
+              <div class="product-detail">{{ getProductBrand(row.baseProductId) }} | {{ getProductSpec(row.baseProductId) }}</div>
             </div>
           </template>
         </el-table-column>
@@ -91,8 +91,8 @@
         <el-table-column label="竞品详细信息" min-width="200">
           <template #default="{ row }">
             <div class="product-info">
-              <div class="product-name">{{ row.competitorName }}</div>
-              <div class="product-detail">{{ row.platform }} | {{ row.salesAmount }}万</div>
+              <div class="product-name">{{ row.compName }}</div>
+              <div class="product-detail">{{ row.salesPlatform }} | {{ row.salesAmount }}万</div>
             </div>
           </template>
         </el-table-column>
@@ -103,14 +103,14 @@
           </template>
         </el-table-column>
 
-        <el-table-column prop="kolKoc" label="合作KOL/KOC" width="150" show-overflow-tooltip />
+        <el-table-column prop="kolKocNames" label="合作KOL/KOC" width="150" show-overflow-tooltip />
 
         <el-table-column prop="createTime" label="生成时间" width="160" />
 
         <el-table-column label="竞品AI分析报告" min-width="150">
           <template #default="{ row }">
             <el-button
-              v-if="row.reportContent"
+              v-if="row.aiReportContent"
               link
               type="primary"
               @click="handleViewReport(row)"
@@ -160,16 +160,16 @@
     >
       <div class="report-preview">
         <div class="report-header">
-          <h3>{{ currentReport.baseProduct?.name }} vs {{ currentReport.competitorName }}</h3>
+          <h3>{{ getProductName(currentReport.baseProductId) }} vs {{ currentReport.compName }}</h3>
           <p class="report-meta">
             生成时间：{{ currentReport.createTime || currentReport.updateTime }}
           </p>
         </div>
 
         <div class="report-content">
-          <div v-if="currentReport.reportContent">
+          <div v-if="currentReport.aiReportContent">
             <el-input
-              v-model="currentReport.reportContent"
+              v-model="currentReport.aiReportContent"
               type="textarea"
               :rows="20"
               readonly
@@ -182,7 +182,7 @@
       </div>
       <template #footer>
         <el-button @click="reportPreviewVisible = false">关闭</el-button>
-        <el-button v-if="currentReport.reportContent" type="primary" @click="handleDownloadReport">下载报告</el-button>
+        <el-button v-if="currentReport.aiReportContent" type="primary" @click="handleDownloadReport">下载报告</el-button>
       </template>
     </el-dialog>
 
@@ -208,11 +208,11 @@
             />
           </el-select>
         </el-form-item>
-        <el-form-item label="竞品名称" prop="competitorName">
-          <el-input v-model="editForm.competitorName" placeholder="请输入竞品名称" />
+        <el-form-item label="竞品名称" prop="compName">
+          <el-input v-model="editForm.compName" placeholder="请输入竞品名称" />
         </el-form-item>
-        <el-form-item label="平台" prop="platform">
-          <el-select v-model="editForm.platform" placeholder="请选择平台" style="width: 100%">
+        <el-form-item label="平台" prop="salesPlatform">
+          <el-select v-model="editForm.salesPlatform" placeholder="请选择平台" style="width: 100%">
             <el-option label="抖音" value="抖音" />
             <el-option label="小红书" value="小红书" />
             <el-option label="京东" value="京东" />
@@ -223,11 +223,11 @@
           <el-input-number v-model="editForm.salesAmount" :min="0" style="width: 100%" />
         </el-form-item>
         <el-form-item label="合作KOL/KOC">
-          <el-input v-model="editForm.kolKoc" placeholder="请输入合作的KOL/KOC" />
+          <el-input v-model="editForm.kolKocNames" placeholder="请输入合作的KOL/KOC" />
         </el-form-item>
         <el-form-item label="分析报告">
           <el-input
-            v-model="editForm.reportContent"
+            v-model="editForm.aiReportContent"
             type="textarea"
             :rows="5"
             placeholder="AI分析报告内容"
@@ -289,15 +289,15 @@ const editFormRef = ref<FormInstance>()
 const editForm = reactive({
   id: undefined as number | undefined,
   baseProductId: undefined as number | undefined,
-  competitorName: '',
-  platform: '',
+  compName: '',
+  salesPlatform: '',
   salesAmount: 0,
-  kolKoc: '',
-  reportContent: ''
+  kolKocNames: '',
+  aiReportContent: ''
 })
 const editRules: FormRules = {
-  competitorName: [{ required: true, message: '请输入竞品名称', trigger: 'blur' }],
-  platform: [{ required: true, message: '请选择平台', trigger: 'change' }]
+  compName: [{ required: true, message: '请输入竞品名称', trigger: 'blur' }],
+  salesPlatform: [{ required: true, message: '请选择平台', trigger: 'change' }]
 }
 const saving = ref(false)
 
@@ -334,6 +334,21 @@ const loadProducts = async () => {
   } catch (error) {
     console.error('加载产品列表失败:', error)
   }
+}
+
+const getProductName = (productId: number) => {
+  const product = productList.value.find(p => p.id === productId)
+  return product ? product.name : `产品ID: ${productId}`
+}
+
+const getProductSpec = (productId: number) => {
+  const product = productList.value.find(p => p.id === productId)
+  return product?.spec || product?.specification || ''
+}
+
+const getProductBrand = (productId: number) => {
+  const product = productList.value.find(p => p.id === productId)
+  return product?.brand || ''
 }
 
 // 筛选
@@ -423,11 +438,11 @@ const handleEdit = (row: any) => {
   Object.assign(editForm, {
     id: row.id,
     baseProductId: row.baseProductId,
-    competitorName: row.competitorName,
-    platform: row.platform,
+    compName: row.compName,
+    salesPlatform: row.salesPlatform,
     salesAmount: row.salesAmount || 0,
-    kolKoc: row.kolKoc || '',
-    reportContent: row.reportContent || ''
+    kolKocNames: row.kolKocNames || '',
+    aiReportContent: row.aiReportContent || ''
   })
   editFormRef.value?.clearValidate()
   editFormVisible.value = true
@@ -490,9 +505,9 @@ const handleRefresh = () => {
   ElMessage.success('数据刷新成功')
 }
 
-onMounted(() => {
-  loadCompetitors()
-  loadProducts()
+onMounted(async () => {
+  await loadProducts()
+  await loadCompetitors()
 })
 </script>
 

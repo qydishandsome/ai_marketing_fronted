@@ -210,13 +210,17 @@ const loadPredicts = async () => {
     })
     // 处理不同的响应结构
     const content = response.content || response.list || []
-    tableData.value = content.map((item: any) => ({
-      ...item,
-      productName: item.productName || item.product?.name || (productList.value.find(p => p.id === item.productId)?.name) || `产品ID: ${item.productId}`,
-      specification: item.specification || item.product?.spec || (productList.value.find(p => p.id === item.productId)?.specification) || '',
-      targetAudience: item.targetAudience || item.audienceName || '',
-      status: item.status !== undefined ? item.status : (item.reportContent ? 1 : 0)
-    }))
+    tableData.value = content.map((item: any) => {
+      const product = productList.value.find(p => p.id === item.productId)
+      const audience = audienceList.value.find((a: any) => a.id === item.audienceId)
+      return {
+        ...item,
+        productName: product?.name || `产品ID: ${item.productId}`,
+        specification: product?.spec || product?.specification || '',
+        targetAudience: item.targetAudience || item.audienceName || audience?.audienceName || '',
+        status: item.status !== undefined ? item.status : (item.reportContent ? 1 : 0)
+      }
+    })
     pagination.total = response.totalElements || response.total || 0
 
     if (tableData.value.length === 0 && pagination.total === 0) {
@@ -423,11 +427,9 @@ const getStatusText = (status: number) => {
   return texts[status] || '未知'
 }
 
-onMounted(() => {
-  loadPredicts()
-  loadProducts()
-  loadAudiences()
-  loadCategories()
+onMounted(async () => {
+  await Promise.all([loadProducts(), loadAudiences(), loadCategories()])
+  await loadPredicts()
 })
 </script>
 

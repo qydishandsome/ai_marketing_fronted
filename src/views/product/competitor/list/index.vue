@@ -149,7 +149,7 @@
           <el-input v-model="currentCompetitor.baseProductName" disabled />
         </el-form-item>
         <el-form-item label="竞品">
-          <el-input v-model="currentCompetitor.competitorName" disabled />
+          <el-input v-model="currentCompetitor.compName" disabled />
         </el-form-item>
         <el-form-item label="AI模型">
           <el-select v-model="analyzeForm.aiModel" placeholder="请选择AI模型">
@@ -355,7 +355,7 @@ const handleSave = async () => {
 const handleAnalyze = (row: any) => {
   currentCompetitor.value = {
     ...row,
-    baseProductName: row.baseProduct?.name || ''
+    baseProductName: getProductName(row.baseProductId)
   }
   analyzeForm.aiModel = 'deepseek'
   analyzeForm.enableSearch = true
@@ -430,10 +430,9 @@ const getPlatformType = (platform: string) => {
   return types[platform] || 'info'
 }
 
-onMounted(() => {
-  loadCompetitors()
-  loadProducts()
-  loadPlatforms()
+onMounted(async () => {
+  await Promise.all([loadProducts(), loadPlatforms()])
+  await loadCompetitors()
 })
 </script>
 
