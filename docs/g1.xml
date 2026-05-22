@@ -1,0 +1,79 @@
+<mxfile host="65bd71144e">
+  <diagram id="user_functional_structure" name="User Functional Structure">
+    <mxGraphModel dx="1200" dy="1500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="基于AI的Web前端构建平台 - 用户端" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1.5;fillColor=none;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="213.5" y="40" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" value="用户功能模块" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1.5;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="338.5" y="110" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t1" target="t2" />
+
+        <mxCell id="h1" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="60" y="180" as="sourcePoint" />
+            <mxPoint x="760" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="t2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="413.5" y="150" as="sourcePoint" />
+            <mxPoint x="413.5" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="v1" value="用户注册&#10;用户登录&#10;个人信息管理&#10;密码修改" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=none;align=left;spacingLeft=8;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="10" y="210" width="100" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="v1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="60" y="180" as="sourcePoint" /><Array as="points"><mxPoint x="60" y="180"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="v2" value="添加LLM配置&#10;查看配置列表&#10;编辑配置&#10;删除配置&#10;测试配置可用性" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=none;align=left;spacingLeft=8;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="120" y="210" width="100" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="v2">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="170" y="180" as="sourcePoint" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="v3" value="描述应用需求&#10;多轮对话细化&#10;代码生成&#10;流式输出查看&#10;聊天历史管理" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=none;align=left;spacingLeft=8;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="230" y="210" width="100" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="v3">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="280" y="180" as="sourcePoint" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="v4" value="页面预览&#10;元素选择&#10;AI对话编辑&#10;源码编辑&#10;实时预览" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=none;align=left;spacingLeft=8;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="340" y="210" width="100" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="v4">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="390" y="180" as="sourcePoint" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="v5" value="创建应用&#10;查看应用列表&#10;编辑应用信息&#10;删除应用&#10;下载源码" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=none;align=left;spacingLeft=8;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="450" y="210" width="100" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="v5">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="500" y="180" as="sourcePoint" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="v6" value="发起部署&#10;查看部署状态&#10;重新部署&#10;访问部署应用" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=none;align=left;spacingLeft=8;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="560" y="210" width="100" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="v6">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="610" y="180" as="sourcePoint" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="v7" value="创建团队&#10;管理成员&#10;工作空间管理&#10;成员邀请&#10;角色管理&#10;空间切换" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=none;align=left;spacingLeft=8;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="670" y="210" width="100" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="v7">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="720" y="180" as="sourcePoint" /></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

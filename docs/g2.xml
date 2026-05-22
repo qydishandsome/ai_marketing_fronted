@@ -1,0 +1,44 @@
+<mxfile host="65bd71144e">
+  <diagram id="admin_functional_structure" name="Admin Functional Structure">
+    <mxGraphModel dx="1000" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="a1" value="基于AI的Web前端构建平台 - 管理员端" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1.5;fillColor=none;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="213.5" y="40" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" value="管理员功能模块" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1.5;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="338.5" y="110" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ae1" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="a1" target="a2" />
+
+        <mxCell id="ah1" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="180" as="sourcePoint" />
+            <mxPoint x="627" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ae2" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="a2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="413.5" y="150" as="sourcePoint" />
+            <mxPoint x="413.5" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="av1" value="设置精选应用&#10;应用全局管理" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=none;align=left;spacingLeft=10;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="130" y="210" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ae3" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="av1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="200" y="180" as="sourcePoint" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="av2" value="查看系统概览&#10;查看业务指标&#10;查看性能指标&#10;配置告警规则" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=none;align=left;spacingLeft=10;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="557" y="210" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ae4" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="av2">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="627" y="180" as="sourcePoint" /></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

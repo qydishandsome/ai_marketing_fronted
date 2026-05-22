@@ -1,0 +1,54 @@
+1. {
+    "code": 200,
+    "msg": "操作成功",
+    "data": {
+        "content": [
+            {
+                "id": 2,
+                "groupName": "1",
+                "permissions": "{\"role\": \"查看,编辑\"}",
+                "status": 1,
+                "createTime": "2026-04-12T23:39:00",
+                "updateTime": "2026-04-12T23:39:00",
+                "isDeleted": 0
+            }
+        ],
+        "page": {
+            "size": 10,
+            "number": 0,
+            "totalElements": 1,
+            "totalPages": 1
+        }
+    }
+}
+这个用户组查询请求没有用户数量的字段，所以前端无法显示，请你排查如果是后端就没有这个数据字段，前端也不要了
+
+2. 工作台首页展示的：总产品数
+1,280
+环比上升 12%
+已上架产品
+850
+上架率 66.4%
+活跃分销商
+42
+本月新增 3 家
+AI 分析次数5,630
+今日增长 210
+都是模拟数据，请你设置成真实数据。
+营销增长趋势的echarts动态图表也没有正常显示
+
+3. 达人筛选策略列表中新建策略筛选的“筛选策略”参数，下拉框中的数据是不是我选中什么就以什么为这个参数的值？为什么新增成功后，数据库没有新增数据？我看好像数据库中没有和策略相关的表，请你检查和这个功能有关的接口、数据表、后端
+
+4. 点击产品列表中的查看说明书按钮，跳转后的页面显示：This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<Error>
+<Code>NoSuchKey</Code>
+<Message>The specified key does not exist.</Message>
+<Resource>/qyd123-1382137565/product-manual/20260413175331_5dce461d79dd4cb0b724514f431269bb.jpeg</Resource>
+<RequestId>NjlkY2JkMzhfNTNjZTViMWVfOTc3OF9iZGMxZTUz</RequestId>
+<TraceId>OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OWEzMDE4ZGI4NTE5MWE4YmYxODQ1NWI3YzFiOTg0ZjdlODUyNTEyOWY4OGQwMmNhZmMzYjkxZDU5ZjI2NWUyZWE=</TraceId>
+</Error>
+
+5. ai新品爆款预测中，产品下拉框无数据，目标人群不是应该去选择人群列表中的数据吗？关联品类也是一些模拟的数据。而且我也不需要编辑按钮。任务完成后“预测状态”也没用从进行中改为已完成。产品名称显示的是：“产品ID: 1”
+
+6. 历史爆款中什么数据也没用，我需要如何做才会让他有数据？
+

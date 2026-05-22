@@ -1,0 +1,93 @@
+/* 全局样式文件 - 营销系统重制版 */
+
+:root {
+  --primary-color: #409eff;
+  --bg-color: #f8fafc;
+  --sidebar-bg: #ffffff;
+  --sidebar-text: #303133;
+  --sidebar-active-text: #409eff;
+  --el-menu-active-bg: #ecf5ff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  background-color: var(--bg-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  height: 100vh;
+}
+
+.app-wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.sidebar-container {
+  width: 240px;
+  height: 100%;
+  background-color: var(--sidebar-bg);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  z-index: 1001;
+}
+
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.header {
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.app-main {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Element Plus 适配与覆盖 */
+.el-menu {
+  border-right: none !important;
+}
+
+.el-sub-menu__title:hover {
+  background-color: #fbfcfd !important;
+}
+
+.el-menu-item:hover {
+  background-color: #fbfcfd !important;
+}
+
+.el-card {
+  border: 1px solid #eef0f2;
+}
+
+/* 微动画 */
+.fade-transform-enter-active,
+.fade-transform-leave-active {
+  transition: all 0.3s;
+}
+
+.fade-transform-enter-from {
+  opacity: 0;
+  transform: translateX(-15px);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(15px);
+}
